@@ -6,7 +6,8 @@ var connect = require("connect");
 require("dotenv").config();
 
 const app = express();
-const mongoUrl = process.env.MONGO_URI;
+const password = process.env.MONGO_PASSWORD;
+const mongoUrl = `mongodb+srv://project-one:${password}@cluster-one.9qudv0t.mongodb.net/?retryWrites=true&w=majority`;
 
 const database = mongoose.connection;
 
