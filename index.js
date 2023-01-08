@@ -1,17 +1,14 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const routes = require("./routes/routes");
-var connect = require("connect");
 
 require("dotenv").config();
 
 const app = express();
 const password = process.env.MONGO_PASSWORD;
 const mongoUrl = `mongodb+srv://project-one:${password}@cluster-one.9qudv0t.mongodb.net/?retryWrites=true&w=majority`;
-
-const database = mongoose.connection;
-
 mongoose.connect(mongoUrl);
+const database = mongoose.connection;
 
 database.on("error", (error) => {
   console.log(error);
